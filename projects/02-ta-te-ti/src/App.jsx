@@ -1,60 +1,35 @@
-import { useState } from "react"
-import "./index.css"
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-const TURN = { x: "X", o: "O" }
-
-// # El Square sera las casillas del tablero
-// Mostrar la "X"/"O" en el tablero, actualizar tablero, saber que indice es
-const Square = ({ children, isSelected, updateBoard, index }) => {
-  const className = `square ${isSelected ? 'is-selected' :  ''}`
-
-  const handelClick = () => updateBoard(index)
+function App() {
+  const [count, setCount] = useState(0)
 
   return (
-    <div onClick={handelClick}className={className}>
-      {children}
-    </div>
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
 }
 
-export const App = () => {
-  const [ board, setBoard ] = useState(Array(9).fill(null))
-  // Estado del turno
-  const [ turn, setTurn ] = useState(TURN.x)
-
-  const updateBoard = (index) => {
-    const newBoard = [...board];
-    newBoard[index] = turn;
-    setBoard(newBoard)
-
-    const newTurn  = turn === TURN.x ? TURN.o : TURN.x
-    setTurn(newTurn)
-  }
-
-  return (
-  <main className="board">
-    <h1>Ta Te Ti</h1>
-      <section className="game">
-        {board.map((_, index) => {
-          return (
-            <Square 
-                key={index} 
-                index={index}
-                updateBoard={updateBoard}>
-              {index}
-            </Square>
-          )
-        })}
-      </section>
-      <section className="turn">
-        <Square isSelected={turn === TURN.x}>
-          {TURN.x}
-        </Square>
-        
-        <Square isSelected={turn === TURN.o}>
-          {TURN.o}
-        </Square>
-      </section>
-  </main>
-  )
-}
+export default App
