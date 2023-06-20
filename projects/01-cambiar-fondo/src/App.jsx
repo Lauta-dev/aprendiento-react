@@ -1,14 +1,14 @@
-import { useState } from "react"
-import "./body.css"
+import { useState } from 'react'
+import './body.css'
 
 export const App = () => {
-  const [ active, isActive ] = useState(false);
+  const [active, isActive] = useState(false)
 
-  const handelClick = () => isActive(!active);
+  const handelClick = () => isActive(!active)
 
-  const bodyHTMLElement = document.querySelector("body");
-  if(active) bodyHTMLElement.classList.add("ligth-mode");
-  else bodyHTMLElement.classList.remove("ligth-mode");
+  const bodyHTMLElement = document.querySelector('body')
+  if (active) bodyHTMLElement.classList.add('ligth-mode')
+  else bodyHTMLElement.classList.remove('ligth-mode')
 
   return (
     <div>

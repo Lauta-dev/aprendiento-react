@@ -1,6 +1,6 @@
-import { Square } from "./square"
+import { Square } from './square'
 
-export const Board = ({board, updateBoard}) => {
+export const Board = ({ board, updateBoard }) => {
   return board.map((_, index) => {
     return (
       <Square key={index} index={index} updateBoard={updateBoard}>

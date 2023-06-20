@@ -1,4 +1,4 @@
-export const TURN = { x: "x", o: "o" };
+export const TURN = { x: 'x', o: 'o' }
 
 export const WINNER_COMBOS = [
   [0, 1, 2],

@@ -1,7 +1,7 @@
-import { YoutubeSvg } from "../public/youtube"
-import { SearchBar } from "./SearchBar"
+import { YoutubeSvg } from '../public/youtube'
+import { SearchBar } from './SearchBar'
 
-export function App() {
+export function App () {
   return (
     <div>
       <div>
