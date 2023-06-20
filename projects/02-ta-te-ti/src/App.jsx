@@ -1,17 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Square } from './components/square';
 import { TURN } from './constant';
 import { chechWinner } from './logic/board';
 import { WinnerModal } from './components/winnerModal';
 import { Board } from './components/board';
+import { resetGameInLocalStorage, saveGameInLocalStorage } from './components/storage';
 
 function App() {
   // Tablero
   // Usar el hook useState para el estado inicial de la app
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const [board, setBoard] = useState(() => {
+    const boardFromStorage = window.localStorage.getItem("board")
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)
+  });
 
   // Estado para saber de quien es el turno
-  const [turn, setTurn] = useState(TURN.x)
+  const [turn, setTurn] = useState(() => {
+    const turnFromLocalStorage = window.localStorage.getItem("turn");
+    return turnFromLocalStorage ?? TURN.x;
+  })
 
   // Estado para saber quien a ganado
   // NULL -> es si no hay ganador
@@ -25,8 +32,9 @@ function App() {
        setTurn(TURN.x)
        setWin(null)
      }*/
+    resetGameInLocalStorage()
 
-     // eevitar que el tablero se renderize de nuevo cuando no hay elementos en el
+    // eevitar que el tablero se renderize de nuevo cuando no hay elementos en el
     board.every((e) => {
       if (e !== null) {
         setBoard(Array(9).fill(null))
@@ -49,6 +57,12 @@ function App() {
     const newTurn = turn === TURN.x ? TURN.o : TURN.x;
     setTurn(newTurn)
 
+    // Guardar elementos en el localStorage
+    saveGameInLocalStorage({
+      newBoart: newBoart,
+      newTurn: newTurn
+    })
+
     // Saber si hay un ganador
     const newWinner = chechWinner(newBoart);
     if (newWinner) {
@@ -56,12 +70,29 @@ function App() {
       // Esta es la razon por la que el console.log() devuelve null
       setWin(newWinner)
 
+      resetGame()
+
       // win devuelve null porque aun no tiene el valor
       //console.log(`Gano el: ${win}`)
     } else if (chechWinner(newBoart)) {
       setWin(false) // si hay empate
+      resetGame()
     }
   }
+
+  /*
+  // El useEffect ejecuta cualquie codigo que le demos (codigo albitrario)
+  // El codigo dentro se ejecuta cada vez que se renderiza la app
+  useEffect(() => console.log("Render"),
+    // la lista de dependencias (listOfDependenci) es algo asi como una condicion
+    
+    // se ejecuta cuando se carca el board
+    //[board]
+
+    // se ejecuta cuando hay un ganador
+    //[win]
+  )
+  */
 
   return (
     <main className='board'>
