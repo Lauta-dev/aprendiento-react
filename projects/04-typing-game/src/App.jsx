@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [startGame, setStartGame] = useState(false);
+  const [abc, setAbc] = useState([]);
+
+  useEffect(() => {
+    const evento = ({ key }) => {
+      setAbc((prevAbc) => [...prevAbc, key]);
+    };
+
+    if (startGame) {
+      window.addEventListener("keyup", evento);
+    }
+
+    return () => {
+      console.log(`Limpito`);
+      window.removeEventListener("keyup", evento);
+    };
+  }, [startGame]);
+
+  const a = "palabra";
+
+  useEffect(() => {
+    const enterKey = ({ key }) => {
+      if (key == "Enter" && abc.join("") === a) {
+        console.log("logrado");
+      }
+    };
+
+    window.addEventListener("keyup", enterKey);
+
+    return () => {
+      window.removeEventListener("keyup", enterKey);
+    };
+  }, [startGame]);
+
+  const handelClick = () => {
+    setStartGame(!startGame);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className="main">
+      <h1>Typing Game</h1>
+      <div className="estilo">{abc.join("")}</div>
+      <div className="refran">
+        <p>pablito clavo un clavito</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <button onClick={handelClick}>
+        {startGame ? "Stop" : "Start"} Typing Game
+      </button>
+    </main>
+  );
 }
 
-export default App
+export default App;
