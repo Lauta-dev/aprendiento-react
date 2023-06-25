@@ -6,7 +6,7 @@
   color: #fff;
 }
 
-#top_anime_conteiner>div {
+.a {
   display: flex;
   color: #fff;
   gap: 20px;
@@ -16,14 +16,14 @@
   align-items: center;
 }
 
-#top_anime_conteiner>div>div {
+#contenedor_info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 
-#top_anime_conteiner>div>div>p {
+#contenedor_info>p {
   color: #00eeff;
 }
 
@@ -34,6 +34,6 @@ display: flex;
     justify-content: space-between;
 */
 
-#top_anime_conteiner>div>a>img {
-  width: 5rem;
+img {
+  width: 4rem;
 }

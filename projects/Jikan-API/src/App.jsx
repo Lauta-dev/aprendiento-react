@@ -4,11 +4,16 @@ import { JIKAN_API_ANIME } from './const'
 import { Header } from './componet/header'
 import { TopAnimes } from './componet/topAnime'
 
-export function App () {
+import { Link, Route, useRoute } from 'wouter'
+import { GetAnimes } from './componet/getAnime'
+
+export function App() {
   // const [listaDeAnime, setListaDeAnime] = useState()
   // const [nomdeDeAnime, setNombreDeAnime] = useState()
   // const [valorDeInput, setValorDeInput] = useState()
   // const [eventoDelBoton, setEventoDelBoton] = useState(false)
+
+  const [match, params] = useRoute('/anime/:anime')
 
   /*
   useEffect(() => {
@@ -28,7 +33,14 @@ export function App () {
   return (
     <section>
       <Header />
-      <TopAnimes nARenderizar={6} />
+      <ul>
+        <li><Link to='/anime/selected/berserk'> Anime de Berserk </Link></li>
+        <li><Link to='/anime/selected/dragon ball'> Anime de Dragon Ball </Link></li>
+        <li><Link to='/anime/selected/oni chichi'> Anime de Oni ChiChi </Link></li>
+      </ul>
+
+      <Route path='/anime/top' component={TopAnimes} />
+      <Route path='/anime/selected/:anime' component={GetAnimes} />
     </section>
   )
 }
