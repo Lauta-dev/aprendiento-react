@@ -3,7 +3,7 @@ import './css/topAnime.css'
 import { getTopAnime } from '../logic/getTopAnime'
 import { Anime } from './anime'
 
-export function TopAnimes() {
+export function TopAnimes () {
   const [topAnime, setTopAnime] = useState([])
 
   useEffect(() => {
@@ -11,5 +11,5 @@ export function TopAnimes() {
       .then(data => setTopAnime(data))
   }, [])
 
-  return <Anime topAnime={topAnime} />
+  return <Anime animeArray={topAnime} nARenderizar={4} />
 }
