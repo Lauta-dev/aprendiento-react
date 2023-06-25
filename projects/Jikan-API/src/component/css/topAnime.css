@@ -34,6 +34,6 @@ display: flex;
     justify-content: space-between;
 */
 
-img {
+.cover_small {
   width: 4rem;
 }

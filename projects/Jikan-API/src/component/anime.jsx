@@ -1,12 +1,12 @@
 import { Link } from 'wouter'
 import { tipos } from '../const'
 
-export function Anime({ animeArray, nARenderizar }) {
+export function Anime ({ animeArray, nARenderizar, section }) {
   const newArray = animeArray.slice(0, nARenderizar)
 
   return (
     <section id='top_anime_conteiner'>
-      <h1>Tops animes</h1>
+      <h2> {section} </h2>
       {
         newArray && newArray.map((data) => {
           const { title, images, type, score } = data
@@ -30,11 +30,12 @@ export function Anime({ animeArray, nARenderizar }) {
 
           return (
             <div key={malId}>
-              <Link to={`/anime/selected/${tituloSinEspacios}`} className='a'>
-                <img src={imagen} alt={tipos(type, title)} />
+              <Link to={`/anime/selected/one/${malId}`} className='a'>
+                <img className='cover_small' src={imagen} alt={tipos(type, title)} />
                 <div id='contenedor_info'>
                   <strong>{title}</strong>
                   <p> Score: {score} </p>
+                  <p> ID: {malId} </p>
                 </div>
               </Link>
             </div>

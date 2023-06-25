@@ -1,0 +1,22 @@
+.id {
+  text-align: center;
+}
+
+
+section>h2 {
+  color: #ff00ff;
+}
+
+section>section>ul {
+  background-color: #ae00ff;
+  padding: 1rem;
+  border-radius: .6rem;
+}
+
+.anime_name_list {
+  color: #f0f0f0;
+}
+
+section>section>ul>li>h2 {
+  color: #fff;
+}

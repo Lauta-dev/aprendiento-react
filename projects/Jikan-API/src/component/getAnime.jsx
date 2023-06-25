@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getAnime } from '../logic/getAnime'
 import { Anime } from './anime'
 
-export function GetAnimes({ params }) {
+export function GetAnimes ({ params }) {
   const { anime } = params
   const [animeData, setAnimeData] = useState([])
 
@@ -13,5 +13,5 @@ export function GetAnimes({ params }) {
 
   if (!animeData.length) console.log('0')
 
-  return <Anime animeArray={animeData} nARenderizar={2} />
+  return <Anime animeArray={animeData} nARenderizar={5} section={`Anime sobre ${anime}`} />
 }
