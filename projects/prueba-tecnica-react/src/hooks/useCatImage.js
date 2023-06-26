@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 const CAT_API_URL = (firstWord) => `https://cataas.com/c/s/${firstWord}?json=true`
 
-export function useCatImage ({ fact, btn }) {
+export function useCatImage({ fact, btn }) {
   const [imageUrl, setImageUrl] = useState()
 
   useEffect(() => {

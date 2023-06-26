@@ -1,3 +1,4 @@
+import { Link } from 'wouter'
 import './css/input.css'
 import { useState } from 'react'
 
@@ -12,13 +13,9 @@ export function Input() {
         placeholder='Search anime'
         onChange={(evet) => setAnime(evet.target.value)}
       />
-      <button
-        className='btn_search' onClick={() => {
-          if (anime === undefined) return null
-          console.log(anime)
-        }}
-      >Search
-      </button>
+
+      <Link to={`/anime/selected/${anime}`} className='btn_search'>Search</Link>
+
     </div>
 
   )

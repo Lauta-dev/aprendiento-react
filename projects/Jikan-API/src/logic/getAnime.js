@@ -1,6 +1,6 @@
 import { JIKAN_API_ANIME_ADULT_CONTENT } from '../const'
 
-export async function getAnime (anime) {
+export async function getAnime(anime) {
   try {
     const getData = await fetch(JIKAN_API_ANIME_ADULT_CONTENT(anime))
     const res = await getData.json()
