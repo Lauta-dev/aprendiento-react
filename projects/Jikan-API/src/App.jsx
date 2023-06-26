@@ -5,7 +5,7 @@ import { Link, Route } from 'wouter'
 import { GetAnimes } from './component/getAnime'
 import { GetAnimeForID } from './component/getAnimeForID'
 
-export function App() {
+export function App () {
   return (
     <section>
       <Header />

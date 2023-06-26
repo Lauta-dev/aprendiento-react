@@ -1,10 +1,9 @@
 import './css/header.css'
-export function Header() {
+export function Header () {
   return (
     <header>
       <ul>
-        <li>
-        </li>
+        <li />
         <div>
           <li id='recursos'> <a href='#'>Recursos</a> </li>
           <li id='github'> <a href='github.com'>Github</a> </li>
