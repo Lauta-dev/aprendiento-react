@@ -11,7 +11,13 @@ export function GetAnimes ({ params }) {
       .then(({ data }) => setAnimeData(data))
   }, [anime])
 
-  if (!animeData.length) console.log('0')
+  if (!animeData.length) null
 
-  return <Anime animeArray={animeData} nARenderizar={5} section={`Anime sobre ${anime}`} />
+  return (
+    <Anime
+      animeArray={animeData}
+      nARenderizar={5}
+      section={`Anime sobre ${anime}`}
+    />
+  )
 }
