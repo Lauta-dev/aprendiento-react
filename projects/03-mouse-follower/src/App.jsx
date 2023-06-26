@@ -43,6 +43,7 @@ function App() {
           transform: `translate(${position.x || '200'}px, ${position.y || '200'}px)`
         }}
       />
+      <input type="text" />
       <button onClick={handelClick}>{enabled ? 'Desactivar' : 'Activar'} cursor</button>
     </>
   )

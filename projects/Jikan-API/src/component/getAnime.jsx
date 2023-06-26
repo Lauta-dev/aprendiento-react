@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getAnime } from '../logic/getAnime'
 import { Anime } from './anime'
 
-export function GetAnimes ({ params }) {
+export function GetAnimes({ params }) {
   const { anime } = params
   const [animeData, setAnimeData] = useState([])
 

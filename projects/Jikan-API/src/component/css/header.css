@@ -1,9 +1,9 @@
 a {
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 #logo {
-  width: 50px;
+  width: 5rem;
 }
 
 header {
@@ -12,7 +12,7 @@ header {
 
 /* MEDIA QUERY */
 @media only screen and (max-width: 576px) {
-  header > ul {
+  header>ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -21,7 +21,7 @@ header {
 }
 
 @media only screen and (min-width: 576px) {
-  header > ul {
+  header>ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -29,12 +29,12 @@ header {
   }
 }
 
-header > ul > div {
+header>ul>div {
   display: flex;
   gap: 20px;
 }
 
-#recursos > a {
+#recursos>a {
   color: #000;
   background-color: orange;
   border: 3px solid transparent;
@@ -44,14 +44,14 @@ header > ul > div {
   transition-duration: 1s;
 }
 
-#recursos > a:hover {
+#recursos>a:hover {
   border: 3px solid #000;
 
   transition-property: border;
   transition-duration: 1s;
 }
 
-#github> a {
+#github>a {
   color: #fff;
   background-color: #000;
   border: 3px solid transparent;
@@ -61,7 +61,6 @@ header > ul > div {
   transition-duration: 1s;
 }
 
-#github > a:hover {
+#github>a:hover {
   border: 3px solid #fff;
 }
-

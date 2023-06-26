@@ -1,26 +1,26 @@
 import { Header } from './component/header'
 import { TopAnimes } from './component/topAnime'
 
-import { Link, Route } from 'wouter'
 import { GetAnimes } from './component/getAnime'
 import { GetAnimeForID } from './component/getAnimeForID'
+import { Footer } from './component/footer'
+import { Routers } from './Routers/router'
+import { AnimeRandomArray } from './randomAnimeArray'
+import { Input } from './component/Input'
 
-export function App () {
+export function App() {
   return (
     <section>
       <Header />
-      <ul>
-        <li><Link to='/anime/selected/berserk'> Anime de Berserk </Link></li>
-        <li><Link to='/anime/selected/dragon ball'> Anime de Dragon Ball </Link></li>
-        <li><Link to='/anime/selected/oni chichi'> Anime de Oni ChiChi </Link></li>
-        <li><Link to='/anime/selected/toshi den'> Anime de Tochi </Link></li>
-        <li><Link to='/anime/top'> Anime top </Link></li>
-        <li><Link to='/'> Inicio </Link></li>
-      </ul>
+      <AnimeRandomArray />
+      <Input />
 
-      <Route path='/anime/top' component={TopAnimes} />
-      <Route path='/anime/selected/:anime' component={GetAnimes} />
-      <Route path='/anime/selected/one/:malId' component={GetAnimeForID} />
+      <Routers
+        GetAnimeForID={GetAnimeForID}
+        GetAnimes={GetAnimes}
+        TopAnimes={TopAnimes}
+      />
+      <Footer />
     </section>
   )
 }
