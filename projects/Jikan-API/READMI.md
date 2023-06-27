@@ -40,8 +40,8 @@
 
 # Header
 
-- [ ] Agregar un icono
-- [ ] Input
-  - [ ] Usar el valor del input para realizar una busqueda de anime
+- [x] Agregar un icono
+- [x] Input
+  - [x] Usar el valor del input para realizar una busqueda de anime
 
 
