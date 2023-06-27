@@ -1,17 +1,8 @@
-import { useEffect, useState } from 'react'
-import { getAnimeForID } from '../logic/getAnimeForID'
 import { Order } from './Order'
+import { useGetAnime } from '../hooks/getAnimeForID'
 
 export function GetAnimeForID({ params }) {
-  const { malId } = params
-  const [animeID, setAnimeID] = useState(null)
-
-  useEffect(() => {
-    getAnimeForID(malId)
-      .then(data => {
-        return setAnimeID(data.data)
-      })
-  }, [])
+  const { animeID } = useGetAnime({ params })
 
   return (
     <>

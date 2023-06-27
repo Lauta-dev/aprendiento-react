@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import './css/topAnime.css'
 import { getTopAnime } from '../logic/getTopAnime'
-import { Anime } from './anime'
+import { ListOfAnimes } from './ListOfAnimes'
 
-export function TopAnimes () {
+export function TopAnimes() {
   const [topAnime, setTopAnime] = useState([])
 
   useEffect(() => {
@@ -11,5 +10,5 @@ export function TopAnimes () {
       .then(data => setTopAnime(data))
   }, [])
 
-  return <Anime animeArray={topAnime} nARenderizar={4} />
+  return <ListOfAnimes animeArray={topAnime} nARenderizar={4} />
 }

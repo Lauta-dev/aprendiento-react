@@ -13,7 +13,6 @@ export function SelecteAnimeSynopsis({ genres, synopsis }) {
             <h2>Description:</h2>
             <p>{synopsis}</p>
           </div>
-
         </div>
       </div>
       <button

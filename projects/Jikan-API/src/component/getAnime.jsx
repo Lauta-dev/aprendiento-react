@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react'
-import { getAnime } from '../logic/getAnime'
-import { Anime } from './anime'
+import { useGetAnime } from '../hooks/getAnime'
+import { ListOfAnimes } from './ListOfAnimes'
 
 export function GetAnimes({ params }) {
-  const { anime } = params
-  const [animeData, setAnimeData] = useState([])
-
-  useEffect(() => {
-    getAnime(anime)
-      .then(({ data }) => setAnimeData(data))
-  }, [anime])
-
-  if (!animeData.length) null
+  const { animeData } = useGetAnime({ params })
 
   return (
-    <Anime
+    <ListOfAnimes
       animeArray={animeData}
       nARenderizar={5}
-      section={`Anime sobre ${anime}`}
+      section={`Anime sobre ${params.anime}`}
     />
   )
 }

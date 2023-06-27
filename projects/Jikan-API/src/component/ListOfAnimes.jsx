@@ -1,7 +1,6 @@
-import { Link } from 'wouter'
-import { tipos } from '../const'
+import { Animes } from './Animes'
 
-export function Anime ({ animeArray, nARenderizar, section }) {
+export function ListOfAnimes({ animeArray, nARenderizar, section }) {
   const newArray = animeArray.slice(0, nARenderizar)
 
   return (
@@ -9,7 +8,7 @@ export function Anime ({ animeArray, nARenderizar, section }) {
       <h2> {section} </h2>
       {
         newArray && newArray.map((data) => {
-          const { title, images, type, score } = data
+          const { title, images, type, score, genres } = data
           const malId = data.mal_id
           const { jpg, webp } = images
 
@@ -26,19 +25,17 @@ export function Anime ({ animeArray, nARenderizar, section }) {
           }
 
           const imagen = webpImgesUrl.large_image_url
-          const tituloSinEspacios = title.split(' ').join('_')
 
           return (
-            <div key={malId}>
-              <Link to={`/anime/selected/one/${malId}`} className='a'>
-                <img className='cover_small' src={imagen} alt={tipos(type, title)} />
-                <div id='contenedor_info'>
-                  <strong>{title}</strong>
-                  <p> Score: {score} </p>
-                  <p> ID: {malId} </p>
-                </div>
-              </Link>
-            </div>
+            <Animes
+              key={malId}
+              imagen={imagen}
+              malId={malId}
+              title={title}
+              score={score}
+              type={type}
+              genres={genres}
+            />
           )
         })
       }

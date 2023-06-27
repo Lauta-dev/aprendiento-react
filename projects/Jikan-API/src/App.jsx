@@ -1,9 +1,9 @@
-import { Header } from './component/header'
+import { Header } from './component/Header'
 import { TopAnimes } from './component/topAnime'
 
 import { GetAnimes } from './component/getAnime'
 import { GetAnimeForID } from './component/getAnimeForID'
-import { Footer } from './component/footer'
+import { Footer } from './component/Footer'
 import { Routers } from './Routers/router'
 import { AnimeRandomArray } from './randomAnimeArray'
 import { Input } from './component/Input'
