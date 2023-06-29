@@ -12,7 +12,6 @@ export function App() {
   return (
     <section>
       <Header />
-      <AnimeRandomArray />
       <Input />
 
       <Routers

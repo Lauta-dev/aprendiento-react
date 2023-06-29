@@ -6,8 +6,6 @@ import './css/animeID.css'
 import { SelecteAnimeSynopsis } from './SelectedAnimeSynopsis'
 
 export function Order({ data }) {
-  const [c, setC] = useState(false)
-
   const {
     images,
     title,
