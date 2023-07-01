@@ -12,9 +12,9 @@ export const tipos = (type, title) => {
   const tiposDeSeries = {
     TV: `No se encontro de la portada de esta serie ${title}`,
     OVA: `No se encontro de la portada de esta OVA ${title}`,
+    ONA: `No se encontro de la portada de esta ONA ${title}`,
     Movie: `No se encontro de la portada de esta pelicula ${title}`,
     Special: `No se encontro de la portada de este especial de TV ${title}`,
-    ONA: `No se encontro de la portada de esta ONA ${title}`
   }
 
   if (type === 'TV') return tiposDeSeries.TV

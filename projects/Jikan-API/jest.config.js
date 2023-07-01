@@ -1,5 +1,4 @@
 module.exports = {
-  moduleFileExtensions: ['js', 'jsx'],
   transform: { '^.+\\.(t|j)sx?$': '@swc/jest' }, // Pagina para usar jest en swc: https://swc.rs/docs/usage/jest
   testPathIgnorePatterns: ['/node_modules/', '/src/component/css/.*\\.css$'],
 
@@ -14,5 +13,4 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js'
   }
-
 }
