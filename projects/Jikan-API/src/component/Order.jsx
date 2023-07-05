@@ -1,53 +1,28 @@
-import { useState } from 'react'
-
 import { tipos } from '../const'
+import { useAnimeSelected } from '../hooks/useAnimeSelected'
 import { getGenrenAnime } from '../logic/getGenrenAnime'
 import './css/animeID.css'
 import { SelecteAnimeSynopsis } from './SelectedAnimeSynopsis'
 
 export function Order({ data }) {
-  const {
-    images,
-    title,
-    title_english,
-    title_japanese,
-    type,
-    source,
-    duration,
-    rating,
-    synopsis,
-    score,
-    genres
-  } = data
-
-  const { jpg, webp } = images
-  const animeTitles = [
-    {
-      title,
-      uuid: crypto.randomUUID()
-    },
-    {
-      title: `${title_english ?? 'No se encontro'}`,
-      uuid: crypto.randomUUID()
-    },
-    {
-      title: `${title_japanese ?? 'No se encontro'}`,
-      uuid: crypto.randomUUID()
-    }
-  ]
-
+  const { newObj, titles } = useAnimeSelected({ data })
   return (
     <section>
       <div className='cover'>
-        <img src={jpg.large_image_url} alt={tipos(type, title)} />
+        <img
+          src={newObj.images.jpg.largeImageUrl}
+          alt={tipos(newObj.type, newObj.title)}
+        />
       </div>
       <section>
-        <ul className={getGenrenAnime(genres)[0]}>
+        <ul className={getGenrenAnime(newObj.genres)[0]}>
           <li> <h2>Anime titles:</h2> </li>
-          {animeTitles.map(({ title, uuid }) => <li key={uuid}> {title} </li>)}
+          {titles.map(({ title, id }) => <li key={id}> {title} </li>)}
         </ul>
-
-        <SelecteAnimeSynopsis genres={genres} synopsis={synopsis} />
+        <SelecteAnimeSynopsis
+          genres={newObj.genres}
+          synopsis={newObj.synopsis}
+        />
       </section>
     </section>
   )

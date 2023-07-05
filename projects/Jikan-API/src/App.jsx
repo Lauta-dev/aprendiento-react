@@ -13,9 +13,7 @@ export function App() {
     <section>
       <Header />
       <Input />
-      <AnimeRandomArray
-
-      />
+      <AnimeRandomArray />
       <Routers
         GetAnimeForID={GetAnimeForID}
         GetAnimes={GetAnimes}

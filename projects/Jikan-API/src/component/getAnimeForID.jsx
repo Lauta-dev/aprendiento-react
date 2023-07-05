@@ -6,7 +6,7 @@ export function GetAnimeForID({ params }) {
 
   return (
     <>
-      {animeID && <Order data={animeID} />}
+      {animeID ? <Order data={animeID} /> : <p>No existe tal anime</p>}
     </>
   )
 }

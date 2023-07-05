@@ -1,0 +1,12 @@
+.products > ul {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit, 
+    minmax(100px, 1fr)
+  );
+  gap: 1rem;
+}
+
+.products > ul > li > img {
+  width: 200px;
+}

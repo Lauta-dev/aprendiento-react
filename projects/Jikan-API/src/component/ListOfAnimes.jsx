@@ -1,5 +1,5 @@
 import { Animes } from './Animes'
-
+import { useAnimeSelected } from '../hooks/useAnimeSelected'
 export function ListOfAnimes({ animeArray, nARenderizar, section }) {
   const newArray = animeArray.slice(0, nARenderizar)
 
@@ -8,33 +8,17 @@ export function ListOfAnimes({ animeArray, nARenderizar, section }) {
       <h2> {section} </h2>
       {
         newArray && newArray.map((data) => {
-          const { title, images, type, score, genres } = data
-          const malId = data.mal_id
-          const { jpg, webp } = images
-
-          const jpgImgesUrl = {
-            image_url: jpg.image_url,
-            small_image_url: jpg.small_image_url,
-            large_image_url: jpg.large_image_url
-          }
-
-          const webpImgesUrl = {
-            image_url: webp.image_url,
-            small_image_url: webp.small_image_url,
-            large_image_url: webp.large_image_url
-          }
-
-          const imagen = webpImgesUrl.large_image_url
+          const { newObj } = useAnimeSelected({ data: data })
 
           return (
             <Animes
-              key={malId}
-              imagen={imagen}
-              malId={malId}
-              title={title}
-              score={score}
-              type={type}
-              genres={genres}
+              key={newObj.id}
+              imagen={newObj.images.webp.largeImageUrl}
+              malId={newObj.id}
+              title={newObj.title}
+              score={newObj.score}
+              type={newObj.type}
+              genres={newObj.genres}
             />
           )
         })
