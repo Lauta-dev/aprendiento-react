@@ -6,13 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "@vitejs/plugin-react": "4.0.1",
-    "vite": "^4.3.9"
+    "happy-dom": "^10.0.3",
+    "vite": "^4.3.9",
+    "vitest": "^0.33.0"
   },
   "dependencies": {
+    "path-to-regexp": "6.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }
