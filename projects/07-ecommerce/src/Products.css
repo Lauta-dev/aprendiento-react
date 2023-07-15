@@ -37,7 +37,7 @@
   opacity: .9;
 }
 
-.products img {
+.cover > img {
   border-radius: 4px;
   width: 100%;
   aspect-ratio: 16/9;
