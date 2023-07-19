@@ -1,4 +1,4 @@
-function App() {
+function App () {
   return (
     <>
       <h1>dasdas</h1>
