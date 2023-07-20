@@ -1,13 +1,9 @@
-import { useState } from 'react'
 import { useFilter } from '../App'
 
 export function Filters () {
-  const [minPrace, setMinPrace] = useState(0)
-
-  const { setFilters } = useFilter()
+  const { setFilters, filters } = useFilter()
 
   const handleChangePrice = (e) => {
-    setMinPrace(e.target.value)
     setFilters(prevState => ({
       ...prevState,
       minPrace: e.target.value
@@ -35,10 +31,11 @@ export function Filters () {
 
             min='0'
             max='1000'
+            value={filters.minPrace}
 
             onChange={handleChangePrice}
           />
-          <span>${minPrace}</span>
+          <span>${filters.minPrace}</span>
         </div>
 
         <div>
