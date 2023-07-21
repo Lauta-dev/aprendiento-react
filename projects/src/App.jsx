@@ -4,6 +4,8 @@ import Products from './components/Products'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { FiltersContext } from './context/filters'
+import { Cart } from './components/carrito/Cart'
+import { CartProvider } from './context/cart'
 
 export function useFilter () {
   /*
@@ -36,11 +38,12 @@ function App () {
   const { filtersProducts } = useFilter()
 
   return (
-    <>
+    <CartProvider>
       <Header />
+      <Cart />
       <Products products={filtersProducts(products)}/>
       <Footer />
-    </>
+    </CartProvider>
   )
 }
 
